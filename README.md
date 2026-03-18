@@ -56,7 +56,7 @@ Everything runs in the browser. No account needed. No data leaves your device.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/ramadanly.git
+git clone https://github.com/ezedinmoh/ramadanly.git
 cd ramadanly
 
 # Install dependencies
