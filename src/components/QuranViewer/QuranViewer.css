@@ -1,0 +1,1242 @@
+/* Quran Viewer Container */
+.quran-viewer {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ===== HEADER ===== */
+.quran-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(20, 38, 48, 0.6);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid rgba(123, 177, 126, 0.2);
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Selectors */
+.surah-selector,
+.juz-selector,
+.language-selector {
+  padding: 0.75rem 1rem;
+  background: rgba(12, 28, 44, 0.6);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 12px;
+  color: #c7e6ca;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.surah-selector:hover,
+.juz-selector:hover,
+.language-selector:hover {
+  border-color: rgba(123, 177, 126, 0.5);
+  background: rgba(12, 28, 44, 0.8);
+}
+
+.surah-selector:focus,
+.juz-selector:focus,
+.language-selector:focus {
+  outline: none;
+  border-color: #7bb17e;
+  box-shadow: 0 0 0 3px rgba(123, 177, 126, 0.2);
+}
+
+/* Page Input */
+.page-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(12, 28, 44, 0.6);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 12px;
+}
+
+.page-input-container label {
+  color: #b2ccd6;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.page-input {
+  width: 60px;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(123, 177, 126, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.page-input:focus {
+  outline: none;
+  border-color: #7bb17e;
+}
+
+.page-total {
+  color: #b2ccd6;
+  font-size: 0.9rem;
+}
+
+/* Translation Toggle Button */
+.btn-toggle-translation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(123, 177, 126, 0.2);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 12px;
+  color: #c7e6ca;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-toggle-translation .btn-text {
+  display: none;
+}
+
+.btn-toggle-translation:hover {
+  background: rgba(123, 177, 126, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-toggle-translation.active {
+  background: rgba(123, 177, 126, 0.4);
+  border-color: #7bb17e;
+}
+
+/* ===== AYAH DISPLAY ===== */
+.ayah-display {
+  background: rgba(20, 38, 48, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 500px;
+  border: 1px solid rgba(123, 177, 126, 0.1);
+}
+
+/* Ayah Card */
+.ayah-card {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.ayah-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(123, 177, 126, 0.3);
+  transform: translateY(-2px);
+}
+
+.ayah-card.highlighted {
+  border-width: 2px;
+  border-color: rgba(244, 208, 63, 0.6);
+}
+
+/* Ayah Header */
+.ayah-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Ayah Number Badge */
+.ayah-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 35px;
+  height: 35px;
+  padding: 0 0.5rem;
+  background: linear-gradient(145deg, #7bb17e, #8fc592);
+  color: #0c1c2c;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(123, 177, 126, 0.3);
+}
+
+.ayah-reference {
+  color: #b2ccd6;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Arabic Text */
+.ayah-text-arabic {
+  font-family: 'Amiri', 'Traditional Arabic', 'Arabic Typesetting', serif;
+  line-height: 2.5;
+  text-align: right;
+  direction: rtl;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.ayah-text-arabic.small {
+  font-size: 1.5rem;
+}
+
+.ayah-text-arabic.medium {
+  font-size: 2rem;
+}
+
+.ayah-text-arabic.large {
+  font-size: 2.5rem;
+}
+
+/* Translation Text */
+.ayah-translation {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.translation-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #b2ccd6;
+  text-align: left;
+}
+
+/* Highlight Indicator */
+.ayah-highlight-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #f4d03f;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ===== NAVIGATION FOOTER ===== */
+.navigation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(20, 38, 48, 0.6);
+  border-radius: 16px;
+  margin-top: 2rem;
+  gap: 1rem;
+  border: 1px solid rgba(123, 177, 126, 0.2);
+}
+
+.btn-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(123, 177, 126, 0.2);
+  border: 1px solid rgba(123, 177, 126, 0.4);
+  border-radius: 12px;
+  color: #c7e6ca;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-nav:hover:not(:disabled) {
+  background: rgba(123, 177, 126, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(123, 177, 126, 0.2);
+}
+
+.btn-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-bookmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(244, 208, 63, 0.2);
+  border: 1px solid rgba(244, 208, 63, 0.4);
+  border-radius: 12px;
+  color: #f4d03f;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-bookmark:hover {
+  background: rgba(244, 208, 63, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 208, 63, 0.2);
+}
+
+.btn-bookmark.active {
+  background: rgba(244, 208, 63, 0.4);
+  border-color: #f4d03f;
+  box-shadow: 0 0 20px rgba(244, 208, 63, 0.3);
+}
+
+/* ===== LOADING & ERROR STATES ===== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(123, 177, 126, 0.2);
+  border-top-color: #7bb17e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  color: #b2ccd6;
+  font-size: 1rem;
+}
+
+.error-message,
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  gap: 1rem;
+  color: #b2ccd6;
+}
+
+.error-message i,
+.empty-message i {
+  font-size: 3rem;
+  color: rgba(244, 208, 63, 0.6);
+}
+
+.error-message p,
+.empty-message p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.error-hint {
+  font-size: 0.9rem !important;
+  color: rgba(178, 204, 214, 0.7) !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .quran-viewer {
+    padding: 0 0.5rem;
+    margin: 1rem auto;
+  }
+
+  .quran-header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .surah-selector,
+  .juz-selector,
+  .language-selector {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .ayah-display {
+    padding: 1rem;
+  }
+
+  .ayah-card {
+    padding: 1rem;
+  }
+
+  .ayah-text-arabic.small {
+    font-size: 1.25rem;
+  }
+
+  .ayah-text-arabic.medium {
+    font-size: 1.5rem;
+  }
+
+  .ayah-text-arabic.large {
+    font-size: 2rem;
+  }
+
+  .translation-text {
+    font-size: 1rem;
+  }
+
+  .btn-toggle-translation .btn-text {
+    display: inline;
+  }
+
+  .navigation-footer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .btn-nav,
+  .btn-bookmark {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .quran-header {
+    gap: 0.5rem;
+  }
+
+  .header-left,
+  .header-right {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .surah-selector,
+  .juz-selector,
+  .language-selector {
+    width: 100%;
+  }
+
+  .ayah-text-arabic.small {
+    font-size: 1.1rem;
+  }
+
+  .ayah-text-arabic.medium {
+    font-size: 1.35rem;
+  }
+
+  .ayah-text-arabic.large {
+    font-size: 1.75rem;
+  }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+body.dark-theme .quran-header,
+body.dark-theme .ayah-display,
+body.dark-theme .navigation-footer {
+  background: rgba(20, 38, 48, 0.8);
+}
+
+body.dark-theme .ayah-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .ayah-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== LIGHT THEME ADJUSTMENTS ===== */
+body.light-theme .quran-header,
+body.light-theme .ayah-display,
+body.light-theme .navigation-footer {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(123, 177, 126, 0.3);
+}
+
+body.light-theme .ayah-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(123, 177, 126, 0.2);
+}
+
+body.light-theme .ayah-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.light-theme .ayah-text-arabic {
+  color: #0c1c2c;
+}
+
+body.light-theme .translation-text,
+body.light-theme .ayah-reference,
+body.light-theme .loading-text,
+body.light-theme .error-message,
+body.light-theme .empty-message {
+  color: #142630;
+}
+
+body.light-theme .surah-selector,
+body.light-theme .juz-selector,
+body.light-theme .language-selector,
+body.light-theme .page-input-container {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0c1c2c;
+}
+
+body.light-theme .page-input {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0c1c2c;
+}
+
+body.light-theme .btn-nav,
+body.light-theme .btn-toggle-translation {
+  color: #0c1c2c;
+}
+
+body.light-theme .btn-bookmark {
+  color: #8b6914;
+}
+
+
+/* ============================================
+   AUDIO CONTROLS STYLES
+   ============================================ */
+
+.audio-controls-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12, 28, 44, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123, 177, 126, 0.3);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.audio-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8bbf8e;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.audio-info i {
+  font-size: 1.1rem;
+}
+
+.audio-playback-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.audio-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.audio-btn:hover:not(:disabled) {
+  background: rgba(123, 177, 126, 0.2);
+  border-color: #8bbf8e;
+  transform: translateY(-1px);
+}
+
+.audio-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.audio-btn-primary {
+  background: linear-gradient(145deg, #7bb17e, #8bbf8e);
+  border-color: #8bbf8e;
+  color: #0c1c2c;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+}
+
+.audio-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(145deg, #8bbf8e, #9bcf9e);
+  transform: scale(1.05);
+}
+
+.audio-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.audio-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.audio-time {
+  font-size: 0.85rem;
+  color: #b2ccd6;
+  min-width: 40px;
+  text-align: center;
+}
+
+.audio-progress-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.audio-progress-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8bbf8e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audio-progress-slider::-webkit-slider-thumb:hover {
+  background: #9bcf9e;
+  transform: scale(1.2);
+}
+
+.audio-progress-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8bbf8e;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.audio-progress-slider::-moz-range-thumb:hover {
+  background: #9bcf9e;
+  transform: scale(1.2);
+}
+
+.audio-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  border-radius: 8px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.audio-settings {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(123, 177, 126, 0.2);
+}
+
+.audio-setting-group {
+  margin-bottom: 1rem;
+}
+
+.audio-setting-group:last-child {
+  margin-bottom: 0;
+}
+
+.audio-setting-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c7e6ca;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.audio-select {
+  width: 100%;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.audio-select:focus {
+  outline: none;
+  border-color: #8bbf8e;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.audio-speed-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.audio-speed-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.audio-speed-btn:hover {
+  background: rgba(123, 177, 126, 0.2);
+  border-color: #8bbf8e;
+}
+
+.audio-speed-btn.active {
+  background: #8bbf8e;
+  color: #0c1c2c;
+  border-color: #8bbf8e;
+  font-weight: 600;
+}
+
+.audio-volume-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin-right: 0.75rem;
+}
+
+.audio-volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #8bbf8e;
+  cursor: pointer;
+}
+
+.audio-volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #8bbf8e;
+  cursor: pointer;
+  border: none;
+}
+
+.audio-volume-value {
+  color: #b2ccd6;
+  font-size: 0.85rem;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Ayah Card Audio Actions */
+.ayah-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.ayah-action-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(123, 177, 126, 0.3);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: #8bbf8e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.ayah-action-btn:hover {
+  background: rgba(123, 177, 126, 0.2);
+  border-color: #8bbf8e;
+  color: #9bcf9e;
+  transform: translateY(-1px);
+}
+
+.ayah-card.playing {
+  border-left: 3px solid #8bbf8e;
+  background: rgba(123, 177, 126, 0.05);
+}
+
+.ayah-card.playing .ayah-action-btn i.fa-volume-high {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .audio-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .audio-playback-controls {
+    justify-content: center;
+  }
+
+  .audio-info {
+    justify-content: center;
+  }
+
+  .audio-settings {
+    padding: 0.75rem;
+  }
+
+  .audio-speed-buttons {
+    justify-content: center;
+  }
+}
+
+
+/* Ayah Selector Styles */
+.ayah-selector-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.ayah-selector-inputs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ayah-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ayah-label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.ayah-label i {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+}
+
+.ayah-select,
+.surah-select {
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 220px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ayah-select:hover,
+.surah-select:hover {
+  border-color: var(--primary-color);
+  background: var(--card-bg);
+}
+
+.ayah-select:focus,
+.surah-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Ayah Dropdown Styles */
+.ayah-dropdown-group {
+  position: relative;
+}
+
+.ayah-dropdown-wrapper {
+  position: relative;
+}
+
+.ayah-dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  min-width: 140px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ayah-dropdown-button:hover {
+  border-color: var(--primary-color);
+  background: var(--card-bg);
+}
+
+.ayah-dropdown-button:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.ayah-selected-value {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.ayah-total-inline {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-left: auto;
+}
+
+.ayah-dropdown-button i {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: transform 0.2s;
+}
+
+.ayah-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 280px;
+  max-height: 400px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownSlideIn 0.2s ease;
+}
+
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ayah-dropdown-header {
+  padding: 0.875rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ayah-dropdown-list {
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.ayah-dropdown-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ayah-dropdown-list::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.ayah-dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.ayah-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.ayah-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.ayah-dropdown-item:hover {
+  background: var(--bg-primary);
+  transform: translateX(4px);
+}
+
+.ayah-dropdown-item.active {
+  background: rgba(46, 125, 50, 0.1);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.ayah-number-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ayah-dropdown-item.active .ayah-number-badge {
+  background: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+}
+
+.ayah-dropdown-item:hover .ayah-number-badge {
+  transform: scale(1.1);
+}
+
+.ayah-item-text {
+  flex: 1;
+  font-weight: 500;
+}
+
+.ayah-dropdown-item i {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.btn-go-to-ayah {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, var(--primary-color), #2d7a4b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+}
+
+.btn-go-to-ayah:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.btn-go-to-ayah:active {
+  transform: translateY(0);
+}
+
+.btn-go-to-ayah i {
+  font-size: 0.875rem;
+  transition: transform 0.2s;
+}
+
+.btn-go-to-ayah:hover i {
+  transform: translateX(3px);
+}
+
+/* Ayah View Header */
+.ayah-view-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(45, 122, 75, 0.05));
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.btn-back-to-page {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back-to-page:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateX(-3px);
+}
+
+.btn-back-to-page i {
+  transition: transform 0.2s;
+}
+
+.btn-back-to-page:hover i {
+  transform: translateX(-3px);
+}
+
+.ayah-view-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ayah-selector-inputs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .ayah-input-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .ayah-label {
+    justify-content: flex-start;
+  }
+  
+  .ayah-select,
+  .surah-select {
+    min-width: 100%;
+  }
+  
+  .ayah-dropdown-button {
+    min-width: 100%;
+    justify-content: space-between;
+  }
+  
+  .ayah-dropdown-menu {
+    min-width: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .btn-go-to-ayah {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .ayah-view-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .btn-back-to-page {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .ayah-view-info {
+    justify-content: center;
+    text-align: center;
+  }
+}
